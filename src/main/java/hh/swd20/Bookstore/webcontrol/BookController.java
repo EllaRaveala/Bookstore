@@ -13,6 +13,6 @@ public class BookController {
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String getNewCarForm(Model malli) {
 		malli.addAttribute("book", new Book()); 
-		return " ";
+		return "Welcome";
 	}
 }
