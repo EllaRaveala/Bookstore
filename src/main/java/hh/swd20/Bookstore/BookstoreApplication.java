@@ -11,6 +11,8 @@ import org.springframework.context.annotation.Bean;
 
 import hh.swd20.Bookstore.domain.Book;
 import hh.swd20.Bookstore.domain.BookRepository;
+import hh.swd20.Bookstore.domain.Category;
+import hh.swd20.Bookstore.domain.CategoryRepository;
 
 
 @SpringBootApplication
@@ -23,11 +25,15 @@ public class BookstoreApplication {
 	}
 	
 	@Bean
-	public CommandLineRunner bookDemo(BookRepository repository) {
+	public CommandLineRunner bookDemo(BookRepository repository, CategoryRepository drepository) {
 		return (args) -> {
 			log.info("save a few books");
-			repository.save(new Book("Rich Dad Poor Dad", "Robert T. Kiyosaki",2011, "1612680011", 20));
-			repository.save(new Book("The alchemist", "Paulo Coelho", 2006, "9780061122415", 15));		
+			drepository.save(new Category("Business"));
+			drepository.save(new Category("Romance"));
+			drepository.save(new Category("Fantasy"));
+			
+			repository.save(new Book("Rich Dad Poor Dad", "Robert T. Kiyosaki",2011, "1612680011", 20, drepository.findByName("Business").get(0)));
+			repository.save(new Book("The alchemist", "Paulo Coelho", 2006, "9780061122415", 15, drepository.findByName("Fantasy").get(0)));		
 
 			log.info("fetch all books");
 			for (Book book : repository.findAll()) {
