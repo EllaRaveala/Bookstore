@@ -8,6 +8,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+
 import hh.swd20.Bookstore.domain.Book;
 import hh.swd20.Bookstore.domain.BookRepository;
 
@@ -32,6 +33,7 @@ public class BookstoreApplication {
 			for (Book book : repository.findAll()) {
 				log.info(book.toString());
 			}
+			
 		};
 	}
 }
