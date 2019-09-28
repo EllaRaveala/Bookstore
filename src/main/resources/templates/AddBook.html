@@ -23,7 +23,7 @@
 								
 		  	<label for="categorylist">Category</label>
 			 <select id="categorylist" th:field="*{category}" class="form-control">
-       			<option th:each="category: ${categories}" th:value="${category.categoryid}" th:text="${category.name}"></option>
+       			<option th:each="category: ${categories}" th:value="${category.categorytid}" th:text="${category.name}"></option>
     		</select>
 			
 			<input type="submit" value="Save"></input>
