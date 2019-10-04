@@ -24,6 +24,11 @@ public class BookController {
 	@Autowired
 	private CategoryRepository drepository; 
 	
+	 @RequestMapping(value="/login")
+	    public String login() {	
+	        return "login";
+	    }		
+	
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String getWelcomePage(Model malli) {
 		malli.addAttribute("book", new Book()); 
